@@ -1,0 +1,23 @@
+# Common Git Commands
+- `git init` initialize a git repo 
+  - `git init projectName` creates the 'projectName' folder as a new git repo
+  - `git init .` initializes the folder you are currently in as a git repo
+- `git clone` copy repo to your local machine
+  - `git clone <repo URL>` copy repo to folder on your machine using HTTPS
+  - `git clone <SSH key>` copy repo to folder on your machine using SSH
+- `git status` reports the changes you currenly have in your version of the repo that are not committed
+- `git add` stages changes that you have made in the repo to be committed
+  - `git add <fileName>` stages the fileName only
+  - `git add .` stages all changes 
+- `git commit` commit all staged changes
+  - `git commit -m "message here"` adds a message with your commit summarizing what was done since last commit
+- `git diff` outputs changes made from the last staged version of the repo
+- `git log` outputs history of commits made to repo
+- `git checkout`
+  - `git checkout <branch name>` places you on that specified branch
+  - `git checkout -b <branch name>` creates the branch name specified and places you on it
+- `git merge`
+  - `git merge <branch name>` takes the specified branch name and merges that branch into the branch your currently on
+- `git branch` reports what branch your currently on
+- `git push` push new commits to a repo on github/gitlab from your local machine
+- `git pull` get new updates from github/gitlab to your local repo copy
