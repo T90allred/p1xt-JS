@@ -94,11 +94,3 @@ months = ['March', 'Jan', 'Feb', 'Dec'];
 months.splice(2, 1, 'This', 'is', 'a', 'test')
 console.log(months)
 //output: [ 'March', 'Jan', 'This', 'is', 'a', 'test', 'Dec' ]
-// COPY ARRAYS
-/*
-SHALLOW COPY
-*/
-
-/*
-DEEP COPY
-*/
