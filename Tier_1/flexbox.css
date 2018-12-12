@@ -15,17 +15,20 @@ body{
   padding: 30px;
   height: 500px;
   display: flex; /* tells the container that we want to use flex-box properties for the container and the children of the element */
-  flex-flow: row wrap; /* combines flex-direction and flex-wrap flexbox properties */
+  flex-flow: row nowrap; /* combines flex-direction and flex-wrap flexbox properties */
   /* flex-direction: row; flex-direction adjust the main-axis of the container */
   /* flex-wrap: wrap; tells the container to wrap the children when the container shrinks or not */
   align-items: center; /* adjusts the alignment of the items in the CROSS-AXIS of the container */
-  justify-content: space-evenly; /* adjusts the alignment of the items in the MAIN-AXIS of the container */
+  justify-content: flex-start; /* adjusts the alignment of the items in the MAIN-AXIS of the container */
   align-content: flex-start; /* tells the children how to align when they start to wrap */
 }
 
 .div1 {
   background-color: #f800db;
   margin: 5px;
+  order: -1; /* changes the order from the default of 0 to whatever you assign it. For customer element ordering */
+  /* flex-grow: 1; */
+  align-self: flex-end; /* This controls the alignment of the single item in terms of the CROSS-AXIS */
 }
 
 .div2 {
@@ -53,10 +56,15 @@ body{
   background-color: #f800db;
   margin: 5px;
   width: 200px;
+  flex: 0 1 187px; /* flex-grow, flex-shrink, flex-basis, all inside flex propertie*/
+  /* flex-grow: 0;  the rate at which extra space is taken up by this element. div5 grows at a rate of 1X, and div6 grows ar a rate of 4X */
+  /* flex-shrink: 1; the rate at which an item shrinks when the amount of space needed for a row of elements shrinks */
+  /* flex-basis: auto;  defines the starting size of your flex items, depending on your MAIN-AXIS */
 }
 
 .div6 {
   background-color: #f800db;
   margin: 5px;
   width: 200px;
+  flex: 0 1 auto;
 }
