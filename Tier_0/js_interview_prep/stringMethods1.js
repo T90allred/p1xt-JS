@@ -48,7 +48,8 @@ console.log(includesStr)
 
 
 /**
-.indexOf = returns the index within the string calling the method. returns only the first occurrence. returns -1 if not found
+.indexOf = returns the index within the string calling the method. returns only the first occurrence. 
+  returns -1 if not found
 */
 let indexOfStr = string2.indexOf('awesome')
 console.log(indexOfStr)
@@ -70,20 +71,33 @@ console.log(matched)
 //outout: [ 'G', 'J', 'S' ]
 
 /**
-.repeat = makes and returns a new string that contains the specified number of copies of the string on which it was called
+.repeat = makes and returns a new string that contains the specified number of copies of the string on 
+  which it was called
 */
 let repeatedStr = string2.repeat(3)
 console.log(repeatedStr)
 //output: 'is awesomeis awesomeis awesome'
 
- /**
-.replace = 
- */
+/**
+.replace = takes a sting or regex as first argument then a string or function to be called for each 
+ match of the first parameter and replaces it (if the second argument is a string only the first 
+ instance will be replaced) will not mutate old string.
+*/
+let replaceStr = 'The little boy hit the little target with a little gun.'
+let replaceStrNew = replaceStr.replace(/little/gi, 'BIG')
+console.log(replaceStrNew)
+//output: The BIG boy hit the BIG target with a BIG gun.
 
-
- /**
-.search = 
- */
+/**
+.search = searches a string for a match of the regex and this string object
+  only returns the first instance 
+*/
+let searchStr = "This is a test, to find a special. Thing!"
+let found = searchStr.search(/[^\w\s]/g)
+console.log(found) // only returns the index number
+//output: 14
+console.log(searchStr[found]) // to see what the charater actually was
+//output: ,
 
 
  /**
