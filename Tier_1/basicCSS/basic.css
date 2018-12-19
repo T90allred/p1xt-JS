@@ -1,5 +1,32 @@
-body {
-  background-color: #f4f4f4;
-  color: #555555;
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  background-color: #fa923f;
+  padding: 10px;
+}
+
+body{
+  background-color: yellow;
+  padding: 10px;
+  margin: 0;
+}
+
+
+.container {
+  background-color: #f073e1;
+  margin: 10px;
+  padding: 30px;
+  height: 100px;
+  display: flex; /* tells the container that we want to use flex-box properties for the container and the children of the element */
+  flex-flow: row nowrap; /* combines flex-direction and flex-wrap flexbox properties */
+  /* flex-direction: row; flex-direction adjust the main-axis of the container */
+  /* flex-wrap: wrap; tells the container to wrap the children when the container shrinks or not */
+  align-items: center; /* adjusts the alignment of the items in the CROSS-AXIS of the container */
+  justify-content: flex-start; /* adjusts the alignment of the items in the MAIN-AXIS of the container */
+}
+ 
+nav div {
+  padding: 30px;
+}
+nav div:hover {
+  color: white;
+
 }
