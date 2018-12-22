@@ -1,5 +1,9 @@
 let array1 = [1, 2, 3, 4, 5]
 let array2 = ['Jake', 'Henry', 'Helga']
+
+
+let isArray = Array.isArray(array1)
+console.log(isArray)// true
 /*
 .foreach = takes each index on an array to a function for each array index
 */
@@ -77,6 +81,16 @@ array11.sort();
 console.log(array1);
 //output: Array [1, 21, 30, 4]
 
+let acendingArray = array11.sort((x, y) => x - y)
+console.log(`acendingArray: ${acendingArray}`)
+//output: acendingArray: 1,4,21,30
+
+
+let decendingArray = array11.sort((x, y) => y - x)
+console.log(`decendingArray: ${decendingArray}`)
+//output: decendingArray: 30,21,4,1
+
+
 
 /*
 .splice = changes the context of the array by adding new values or removing them
@@ -94,3 +108,5 @@ months = ['March', 'Jan', 'Feb', 'Dec'];
 months.splice(2, 1, 'This', 'is', 'a', 'test')
 console.log(months)
 //output: [ 'March', 'Jan', 'This', 'is', 'a', 'test', 'Dec' ]
+
+
