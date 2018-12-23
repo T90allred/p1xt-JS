@@ -149,8 +149,6 @@ innerHeight = window.innerHeight; //get the height of the browser VIEWPORT
 innerWidth = window.innerWidth;//get the width of the browser VIEWPORT
 console.log(height, width, innerHeight, innerWidth)
 
-console.log(window.location)
-console.log(window.navigator)
 
 // Template Literals --------------------------------------------------------------------------------------------
 let name = 'Derek'
@@ -163,7 +161,7 @@ function test() {
 
 html = `
   <ul>
-    <li>${name}</li>
+    <li id="first">${name}</li>
     <li>${age}</li>
     <li>${job}</li>
     <li>${4 - 3}</li>
@@ -173,3 +171,29 @@ html = `
 `;
 
 document.body.innerHTML = html;
+
+// DOM stuff --------------------------------------------------------------------------------------------
+
+console.log(window.location)
+console.log(window.navigator)
+let docThing;
+docThing = document
+docThing = document.all
+docThing = document.all[1]
+docThing = document.domain
+docThing = document.URL
+console.log(docThing)
+
+//single element selctors
+let domElement
+// domElement = document.getElementById('first')
+domElement = document.querySelector('#first')
+domElement.className
+domElement.style.background = 'tomato'
+domElement.addEventListener('mouseover', () => {
+  domElement.style.textAlign = 'center'
+})
+
+
+
+console.log(domElement)
