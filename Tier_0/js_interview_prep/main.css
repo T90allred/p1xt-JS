@@ -1,0 +1,5 @@
+li {
+  padding: 15px;
+  list-style: none;
+  transition-duration: 300ms;
+}

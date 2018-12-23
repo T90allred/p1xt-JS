@@ -184,7 +184,7 @@ docThing = document.domain
 docThing = document.URL
 console.log(docThing)
 
-//single element selctors
+//single element selectors
 let domElement
 // domElement = document.getElementById('first')
 domElement = document.querySelector('#first')
@@ -193,7 +193,52 @@ domElement.style.background = 'tomato'
 domElement.addEventListener('mouseover', () => {
   domElement.style.textAlign = 'center'
 })
-
-
-
 console.log(domElement)
+
+
+//multiple element selectors
+let domElements = document.querySelectorAll('li')
+domElements.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    el.style.fontSize = '1.5em'
+  })
+})
+domElements.forEach(el => {
+  el.addEventListener('mouseleave', () => {
+    el.style.fontSize = '1em'
+  })
+})
+console.log(domElements)
+
+
+// DOM TRAVERSAL --------------------------------------------------------------------------------------------
+let list = document.querySelector('ul')
+let listItem = document.querySelector('li')
+val;
+
+val = list.childNodes //returns a nodeList of all children including line breaks
+val = list.children //returns an HTMLcollection of all children elements
+//make an array from an HTMLcollection
+let childArr = Array.from(val)
+console.log(`childArr: `, childArr)
+val = list.firstChild;//node
+val = list.firstElementChild; //HTML element
+val = list.lastChild;//node
+val = list.lastElementChild;//HTML element
+val = list.childElementCount;//HTML element
+val = list.parentNode;//node
+val = list.parentElement;//HTML element
+val = list.nextSibling;//node
+val = list.nextElementSibling;//HTML element
+val = list.previousSibling;//node
+val = list.previousElementSibling;//HTML element
+
+console.log(`val: `, val)
+
+// element creation --------------------------------------------------------------------------------------------
+const newLI = document.createElement('li')
+newLI.className = 'test';
+newLI.id = 'the-one';
+newLI.setAttribute('title', 'New LI');
+newLI.appendChild(document.createTextNode('BLAHG'));
+document.querySelector('ul').appendChild(newLI)
