@@ -160,14 +160,21 @@ function test() {
 }
 
 html = `
+  <h1>HEY THERE</h1>
   <ul>
-    <li id="first">${name}</li>
-    <li>${age}</li>
-    <li>${job}</li>
-    <li>${4 - 3}</li>
-    <li>${test()}</li>
-    <li>${age >= 16 ? 'Can drive' : 'Can\'t drive'}</li>
+    <li class="item" id="first">${name}</li>
+    <li class="item">${age}</li>
+    <li class="item">${job}</li>
+    <li class="item">${4 - 3}</li>
+    <li class="item">${test()}</li>
+    <li class="item">${age >= 16 ? 'Can drive' : 'Can\'t drive'}</li>
   </ul>
+  <form>
+    <input id="input" type="text">
+    <div>
+      <button id="addBtn">TEST</button>
+    </div>
+  </form>
 `;
 
 document.body.innerHTML = html;
@@ -237,8 +244,137 @@ console.log(`val: `, val)
 
 // element creation --------------------------------------------------------------------------------------------
 const newLI = document.createElement('li')
-newLI.className = 'test';
+newLI.className = 'item';
 newLI.id = 'the-one';
 newLI.setAttribute('title', 'New LI');
 newLI.appendChild(document.createTextNode('BLAHG'));
 document.querySelector('ul').appendChild(newLI)
+
+// element replacement --------------------------------------------------------------------------------------------
+const newHeader = document.createElement('h1')
+newHeader.id = 'the-header'
+newHeader.appendChild(document.createTextNode('NEW HEADER BY REPLACING'))
+const oldHeader = document.querySelector('h1')
+const parent = oldHeader.parentElement;
+parent.replaceChild(newHeader, oldHeader)
+
+
+// element removal --------------------------------------------------------------------------------------------
+list = document.querySelector('ul')
+listItems = document.querySelectorAll('li')
+console.log(listItems)
+
+listItems[0].remove()
+//or
+list.removeChild(listItems[1])
+
+// CLASSES AND ATTRIBUTES --------------------------------------------------------------------------------------------
+list.className;//returns string of classes
+list.classList;//returns DOMtokenList with index like an array
+list.classList[0];
+list.classList.add('TEST')
+list.classList.remove('TEST')
+
+list.getAttribute('href')
+list.setAttribute('href', 'http://google.com')
+list.hasAttribute('href')//returns boolean
+list.removeAttribute('href')
+
+// Event listeners and Event Object --------------------------------------------------------------------------------------------
+const mouseEvents = `
+click
+dblclick
+mousedown
+mouseup
+mouseenter
+mouseover
+mouseleave
+mouseout
+mousemove
+`
+const inputAndFormEvents = `
+keydown
+keyup
+keypress
+focus
+blur
+cut
+paste
+input = all the above input events
+change = used to pickup on changes happening to dropdowns
+submit
+`
+
+const pageHeader = document.querySelector('h1')
+
+pageHeader.addEventListener('mouseover', e => {
+  e.preventDefault()
+  //event target
+  e.target.id;
+  e.target.classList;
+  e.target.className;
+  e.target.innerHTML;
+  //event type
+  e.type
+  //event timestamp
+  e.timeStamp
+  //x and y coordinates relative to window object
+  e.clientX
+  e.clientY
+  //x and y coordinates relative to the element
+  e.offsetX
+  e.offsetY
+
+
+  console.log('The claw...')
+})
+
+pageHeader.addEventListener('click', handleHeaderClick)
+function handleHeaderClick(e) {
+  e.preventDefault()
+  console.log('Working!')
+}
+
+// Event Bubbling/Delegation --------------------------------------------------------------------------------------------
+const likes = document.querySelectorAll('.item')
+document.body.addEventListener('click', deleteItem);
+function deleteItem(e) {
+  if (e.target.classList.contains('item')) {
+    console.log(e.target)
+    e.target.parentElement.remove(); //if any li is clicked the whole ul gets deleted.
+  }
+}
+
+console.log(likes)
+
+// Local  and Session Storage --------------------------------------------------------------------------------------------
+//set local storage item
+//local storage stuff persists until manually cleared out
+localStorage.setItem('name', 'john')
+localStorage.setItem('age', '25')
+localStorage.setItem('other', 'test')
+//set session storage item
+//session storeage stuff persists until the browser session is closed
+sessionStorage.setItem('name', 'Derek')
+localStorage.removeItem('other')
+const localName = localStorage.getItem('name')
+// localStorage.clear();// clears all variables in local storage
+document.querySelector('form').addEventListener('submit', e => {
+  const task = document.querySelector('#input').value
+  let tasks;
+  if (localStorage.getItem('tasks') === null) {
+    tasks = []
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
+  tasks.push(task);
+
+  localStorage.setItem('tasks', JSON.stringify(tasks))
+
+  e.preventDefault()
+})
+
+const tasks = JSON.parse(localStorage.getItem('tasks'))
+tasks.forEach(task => {
+  console.log(task)
+})
