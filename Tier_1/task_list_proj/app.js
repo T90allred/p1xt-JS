@@ -6,12 +6,17 @@ const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
 // load all event listeners
-loadEventListeners();
+// loadEventListeners();
 
-function loadEventListeners() {
+// function loadEventListeners() {
+//   form.addEventListener('submit', addTask);
+//   taskList.addEventListener('click', removeTask);
+// }
+
+(function loadEventListeners() {
   form.addEventListener('submit', addTask);
   taskList.addEventListener('click', removeTask);
-}
+})();
 
 // add task
 function addTask(e) {
@@ -40,5 +45,4 @@ function removeTask(e) {
     }
   }
   e.preventDefault()
-
 }
